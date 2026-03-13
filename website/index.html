@@ -1,0 +1,1009 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vyankatesh Marothiya | Creative Director & Content Scaler</title>
+    
+    <!-- Scripts & Fonts -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
+
+
+
+
+    <style>
+        body { font-family: 'Inter', sans-serif; scroll-behavior: smooth; }
+        
+        /* Persistent Horizontal Scrollbar Styling - Rollable */
+        .custom-scrollbar::-webkit-scrollbar {
+            height: 12px;
+            display: block;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: #111;
+            border-radius: 10px;
+            margin: 0 1.5rem;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #333;
+            border-radius: 10px;
+            border: 2px solid #111;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+            background: #555;
+        }
+
+
+
+
+        .custom-scrollbar {
+            scrollbar-color: #333 #111;
+            scrollbar-width: auto;
+        }
+
+
+
+
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+
+
+
+        .snap-x { scroll-snap-type: x mandatory; }
+        .snap-center { scroll-snap-align: center; }
+
+
+
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .animate-fade-up { animation: fadeInUp 1s ease forwards; }
+        
+        .nav-transition { transition: all 0.5s ease; }
+        .portfolio-item { flex-shrink: 0; }
+
+
+
+
+        /* Modal Overlay Styling */
+        .modal-overlay {
+            background: rgba(0, 0, 0, 0.98);
+            backdrop-filter: blur(20px);
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1000;
+            overflow-y: auto;
+        }
+        .modal-active { display: block; }
+        body.modal-open { overflow: hidden; }
+
+
+
+
+        /* Brand Colors */
+        .text-gs-green { color: #22c55e; }
+        .bg-gs-green { background-color: #004225; }
+        .text-ibw-red { color: #dc2626; }
+        .bg-ibw-red { background-color: #dc2626; }
+    </style>
+</head>
+<body class="bg-[#0a0a0a] text-neutral-100 selection:bg-white selection:text-black">
+
+
+
+
+    <!-- Case Study Modal -->
+    <div id="caseStudyModal" class="modal-overlay">
+        <div class="max-w-6xl mx-auto py-20 px-6">
+            <button onclick="closeModal('caseStudyModal')" class="fixed top-6 right-6 md:top-10 md:right-10 text-white/50 hover:text-white hover:rotate-90 transition-all duration-300 z-[1001]">
+                <i data-lucide="x" class="w-12 h-12"></i>
+            </button>
+            <div id="modalContent"></div>
+        </div>
+    </div>
+
+
+
+
+    <!-- Contact Me Modal -->
+    <div id="hireMeModal" class="modal-overlay">
+        <div class="w-full h-full flex items-center justify-center px-4 py-10">
+            <div class="bg-neutral-900 border border-neutral-800 p-10 md:p-14 rounded-[2rem] max-w-xl w-full relative shadow-2xl">
+                <button onclick="closeModal('hireMeModal')" class="absolute top-6 right-6 text-neutral-500 hover:text-white transition-colors">
+                    <i data-lucide="x" class="w-8 h-8"></i>
+                </button>
+                <h2 class="text-4xl font-black mb-2 uppercase tracking-tighter">Book a Strategy Call</h2>
+                <p class="text-neutral-400 mb-8">Let's talk about scaling your brand. Pick a time or reach out directly below.</p>
+
+
+                <!-- Primary CTA -->
+                <a href="https://calendly.com/vyankateshmarothiya0077" target="_blank" rel="noopener noreferrer" class="flex items-center justify-center gap-3 w-full p-5 bg-white text-black rounded-xl hover:bg-neutral-200 transition-all font-black uppercase tracking-widest text-sm mb-8 shadow-lg">
+                    <i data-lucide="calendar" class="w-5 h-5"></i>
+                    Schedule a Free 30-Min Call
+                </a>
+
+
+                <!-- How it works -->
+                <div class="bg-neutral-800/50 rounded-xl p-6 mb-8 border border-neutral-700/50">
+                    <p class="text-[10px] uppercase tracking-widest text-neutral-500 font-black mb-4">What Happens Next</p>
+                    <div class="space-y-3">
+                        <div class="flex items-start gap-3">
+                            <span class="text-white font-black text-sm w-5 shrink-0">01</span>
+                            <p class="text-sm text-neutral-300">You book a time & fill out a short brief about your brand.</p>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <span class="text-white font-black text-sm w-5 shrink-0">02</span>
+                            <p class="text-sm text-neutral-300">We do a free 30-min discovery call to understand your goals.</p>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <span class="text-white font-black text-sm w-5 shrink-0">03</span>
+                            <p class="text-sm text-neutral-300">I send a custom content strategy proposal within 48 hours.</p>
+                        </div>
+                    </div>
+                </div>
+
+
+                <!-- Other contact options -->
+                <p class="text-[10px] uppercase tracking-widest text-neutral-500 font-black mb-4">Or Reach Out Directly</p>
+                <div class="space-y-3">
+                    <a href="mailto:Vyankateshmarothiya0077@gmail.com" class="flex items-center gap-4 p-4 bg-neutral-800 rounded-xl hover:bg-white hover:text-black transition-all group">
+                        <i data-lucide="mail" class="w-5 h-5"></i>
+                        <span class="font-bold font-mono text-sm">Vyankateshmarothiya0077@gmail.com</span>
+                    </a>
+                    <a href="tel:+918381071131" class="flex items-center gap-4 p-4 bg-neutral-800 rounded-xl hover:bg-white hover:text-black transition-all group">
+                        <i data-lucide="phone" class="w-5 h-5"></i>
+                        <span class="font-bold font-mono text-sm">+91 8381071131</span>
+                    </a>
+                    <a href="https://www.linkedin.com/in/vyankatesh-marothiya-18b40a17b/" target="_blank" rel="noopener noreferrer" class="flex items-center gap-4 p-4 bg-neutral-800 rounded-xl hover:bg-white hover:text-black transition-all group">
+                        <i data-lucide="linkedin" class="w-5 h-5"></i>
+                        <span class="font-bold font-mono text-sm">LinkedIn Profile</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <!-- Navigation -->
+    <nav id="navbar" class="fixed top-0 w-full z-50 nav-transition py-8 px-6">
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
+            <div class="flex items-center gap-4">
+                <img src="assets/IMG_20260224_224535 (1).jpg" alt="Vyankatesh Marothiya" class="w-10 h-10 rounded-full object-cover border-2 border-neutral-800 shadow-lg">
+                <span class="text-xl font-black tracking-tighter uppercase hidden sm:block">V. Marothiya</span>
+            </div>
+            <div class="hidden md:flex gap-8 text-sm uppercase tracking-widest font-black text-neutral-400">
+                <a href="#work" class="hover:text-white transition-colors">Case Studies</a>
+                <a href="#philosophy" class="hover:text-white transition-colors">Philosophy</a>
+                <a href="#services" class="hover:text-white transition-colors">Services</a>
+                <a href="#portfolio-section" class="hover:text-white transition-colors">Work</a>
+            </div>
+            <button onclick="openModal('hireMeModal')" class="bg-white text-black px-6 py-2 rounded-full text-sm font-bold shadow-lg hover:bg-neutral-200 transition-colors tracking-widest uppercase">Book a Call</button>
+        </div>
+    </nav>
+
+
+
+
+    <!-- Hero -->
+    <section class="relative min-h-screen flex flex-col justify-center items-start px-6 max-w-7xl mx-auto pt-20">
+        <div class="animate-fade-up">
+            <p class="text-sm uppercase tracking-[0.3em] text-neutral-500 mb-6 font-semibold">Creative Director & Content Scaler</p>
+            <h1 class="text-6xl md:text-[9rem] font-black tracking-tighter leading-[0.8] mb-8">BEYOND <br /><span class="text-neutral-700">THE EDIT.</span></h1>
+            <p class="text-lg md:text-2xl text-neutral-400 max-w-2xl leading-relaxed mb-4">
+                I help <span class="text-white font-bold">automotive and lifestyle brands</span> grow their social presence through strategy-driven video content.
+            </p>
+            <p class="text-base md:text-lg text-neutral-600 max-w-xl leading-relaxed mb-10">
+                Clients have hit <span class="text-neutral-400 font-semibold">5M+ views</span>, grown <span class="text-neutral-400 font-semibold">60k+ followers in one year</span>, and built loyal communities from scratch.
+            </p>
+            <div class="flex flex-wrap gap-4">
+                <button onclick="openModal('hireMeModal')" class="inline-flex group bg-white text-black px-12 py-5 rounded-full font-black items-center justify-center gap-2 hover:scale-105 transition-transform shadow-[0_0_50px_rgba(255,255,255,0.2)] uppercase tracking-widest">
+                    Book a Free Call <i data-lucide="arrow-right" class="w-5 h-5 group-hover:translate-x-1 transition-transform"></i>
+                </button>
+                <a href="#portfolio-section" class="inline-flex group border border-neutral-700 text-neutral-400 px-12 py-5 rounded-full font-black items-center justify-center gap-2 hover:border-white hover:text-white transition-all uppercase tracking-widest">
+                    See Work <i data-lucide="chevron-down" class="w-5 h-5 group-hover:translate-y-1 transition-transform"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+
+
+
+    <!-- Trusted By Section -->
+    <section class="py-24 border-y border-neutral-900 overflow-hidden bg-neutral-950/50">
+        <div class="max-w-7xl mx-auto px-6">
+            <p class="text-xs uppercase tracking-[0.2em] text-neutral-500 mb-12 text-center font-bold">Scaling Brands Like</p>
+            <div class="flex flex-wrap justify-center items-center gap-12 md:gap-32 opacity-60 grayscale hover:grayscale-0 transition-all duration-500">
+                <div class="flex flex-col items-center">
+                   <span class="text-xl font-black tracking-tighter italic leading-none">GENERATION SPEED</span>
+                </div>
+                <div class="h-12 w-auto flex items-center">
+                    <span class="text-4xl font-black tracking-tighter" style="font-family: 'Impact', sans-serif;">INDIA BIKE WEEK</span>
+                </div>
+                <div class="h-10 w-auto flex items-center gap-2">
+                    <div class="bg-white text-black h-10 w-10 flex items-center justify-center font-black text-2xl rounded">70</div>
+                    <span class="text-2xl font-black tracking-tight uppercase leading-none">EMG</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+
+    <!-- About / Face Section -->
+    <section class="py-24 px-6 bg-[#0a0a0a]">
+        <div class="max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-16">
+            <div class="flex-shrink-0 flex flex-col items-center gap-6">
+                <img src="assets/IMG_20260224_224535 (1).jpg" alt="Vyankatesh Marothiya" class="w-48 h-48 md:w-64 md:h-64 rounded-[2rem] object-cover border border-neutral-800 shadow-2xl">
+                <div class="flex gap-3">
+                    <a href="https://www.linkedin.com/in/vyankatesh-marothiya-18b40a17b/" target="_blank" class="p-3 bg-neutral-900 border border-neutral-800 rounded-xl hover:bg-white hover:text-black transition-all text-neutral-400">
+                        <i data-lucide="linkedin" class="w-5 h-5"></i>
+                    </a>
+                    <a href="mailto:Vyankateshmarothiya0077@gmail.com" class="p-3 bg-neutral-900 border border-neutral-800 rounded-xl hover:bg-white hover:text-black transition-all text-neutral-400">
+                        <i data-lucide="mail" class="w-5 h-5"></i>
+                    </a>
+                    <a href="tel:+918381071131" class="p-3 bg-neutral-900 border border-neutral-800 rounded-xl hover:bg-white hover:text-black transition-all text-neutral-400">
+                        <i data-lucide="phone" class="w-5 h-5"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="max-w-2xl">
+                <span class="text-[10px] uppercase tracking-widest text-neutral-500 font-black">About</span>
+                <h2 class="text-4xl md:text-6xl font-black tracking-tighter uppercase mt-3 mb-6 leading-none">Vyankatesh <br/>Marothiya</h2>
+                <p class="text-neutral-400 text-lg leading-relaxed mb-6">
+                    I'm a Creative Director and Content Scaler based in India, specialising in automotive and lifestyle brands. I've spent years figuring out why some videos go viral and others don't — and I've built repeatable systems around those answers.
+                </p>
+                <p class="text-neutral-500 leading-relaxed mb-8">
+                    My work has generated <span class="text-neutral-300 font-semibold">22M+ cumulative views</span>, built communities like Generation Speed to <span class="text-neutral-300 font-semibold">60k+ in under a year</span>, and launched signature series for India Bike Week that now hit 5M+ views per reel. I don't just edit — I engineer the story, the sound, and the strategy behind the content.
+                </p>
+                <button onclick="openModal('hireMeModal')" class="inline-flex group bg-neutral-900 border border-neutral-700 text-white px-8 py-4 rounded-full font-black items-center gap-3 hover:bg-white hover:text-black hover:border-white transition-all uppercase tracking-widest text-sm">
+                    Work With Me <i data-lucide="arrow-right" class="w-4 h-4 group-hover:translate-x-1 transition-transform"></i>
+                </button>
+            </div>
+        </div>
+    </section>
+
+
+
+
+    <!-- Case Studies Section -->
+    <section id="work" class="py-32 px-6 overflow-hidden">
+        <div class="max-w-7xl mx-auto mb-16 px-6">
+            <h2 class="text-4xl md:text-7xl font-black tracking-tighter mb-6 uppercase leading-none">Building communities <br /> & thinking in campaigns.</h2>
+            <div class="inline-block bg-white/5 backdrop-blur-md border border-white/10 text-white/80 px-6 py-2 rounded-full text-sm font-bold uppercase tracking-widest">
+                Case Studies
+            </div>
+        </div>
+
+
+
+
+        <div class="flex flex-nowrap overflow-x-auto gap-8 pb-12 snap-x custom-scrollbar px-6 max-w-7xl mx-auto">
+            
+            <!-- Case Study: Generation Speed (British Racing Green) -->
+            <div class="portfolio-item min-w-[85vw] md:min-w-[60vw] lg:min-w-[45vw] snap-center group relative bg-gradient-to-br from-[#004225] to-black rounded-[3rem] p-8 md:p-14 shadow-2xl flex flex-col justify-between border border-[#004225]/50 transition-all hover:scale-[1.02]">
+                <div>
+                    <div class="flex justify-between items-start mb-12">
+                        <span class="bg-white/20 text-white text-[10px] uppercase tracking-[0.2em] px-4 py-1.5 rounded-full border border-white/30 backdrop-blur-md font-black">Engineering Community</span>
+                    </div>
+                    <h3 class="text-5xl font-black mb-6 uppercase text-white tracking-tighter leading-none">Generation <br/> Speed</h3>
+                    <p class="text-white/90 mb-10 leading-relaxed text-xl font-medium">
+                        <span class="text-white font-black underline decoration-[#22c55e] underline-offset-8">Problem:</span> Building an automotive community from scratch to 60k+ in one year.
+                    </p>
+                </div>
+                <button onclick="openModal('caseStudyModal', 'gs')" class="bg-white text-[#004225] px-10 py-5 rounded-full font-black w-fit hover:scale-105 transition-all flex items-center gap-3 uppercase tracking-widest shadow-xl">
+                    Read Strategy <i data-lucide="arrow-right" class="w-5 h-5"></i>
+                </button>
+            </div>
+
+
+
+
+            <!-- IBW Case Study Card -->
+            <div class="portfolio-item min-w-[85vw] md:min-w-[60vw] lg:min-w-[45vw] snap-center group relative bg-gradient-to-br from-red-700 to-black rounded-[3rem] p-8 md:p-14 shadow-2xl flex flex-col justify-between border border-red-500/30 transition-all hover:scale-[1.02]">
+                <div>
+                    <div class="flex justify-between items-start mb-12">
+                        <span class="bg-white/20 text-white text-[10px] uppercase tracking-[0.2em] px-4 py-1.5 rounded-full border border-white/30 backdrop-blur-md font-black">Narrative Engineering</span>
+                    </div>
+                    <h3 class="text-5xl font-black mb-6 uppercase text-white tracking-tighter leading-none">India Bike <br/> Week</h3>
+                    <p class="text-white/90 mb-10 leading-relaxed text-xl font-medium">
+                        <span class="text-white font-black underline decoration-red-400 underline-offset-8">Problem:</span> Launching 'Big Trips' series by engineering stories from unedited overlanding footage.
+                    </p>
+                </div>
+                <button onclick="openModal('caseStudyModal', 'ibw')" class="bg-white text-red-900 px-10 py-5 rounded-full font-black w-fit hover:scale-105 transition-all flex items-center gap-3 uppercase tracking-widest shadow-xl">
+                    Read Strategy <i data-lucide="arrow-right" class="w-5 h-5"></i>
+                </button>
+            </div>
+        </div>
+    </section>
+
+
+
+
+    <!-- The 50% Rule / Philosophy -->
+    <section id="philosophy" class="py-32 px-6 bg-white text-black">
+        <div class="max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-20">
+            <div class="lg:w-1/2 text-left">
+                <div class="flex justify-between items-start mb-8">
+                    <span class="bg-black/10 text-black text-[10px] uppercase tracking-widest px-3 py-1 rounded-full border border-black/20 font-bold">Creative Philosophy</span>
+                    <i data-lucide="mic-2" class="text-black/20 w-8 h-8"></i>
+                </div>
+                <h3 class="text-5xl md:text-7xl font-black mb-6 tracking-tighter leading-[0.9]">WHY MY <br /><span class="text-neutral-400 italic">CLIENTS'</span> <br /> VIDEOS RETAIN <br /> <span class="text-neutral-400 italic">3× LONGER.</span></h3>
+                <p class="text-xl leading-relaxed text-neutral-600 mb-8">
+                    Most editors focus only on visuals. I treat <span class="font-bold text-black border-b-4 border-black">Audio as 50% of your video</span> — sound-designing environments that trigger emotion, hold attention, and build brand loyalty from the first frame.
+                </p>
+            </div>
+            <div class="lg:w-1/2 grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-10 text-left">
+                <div class="flex items-start gap-4 pb-4 border-b border-black/10">
+                    <div class="p-3 bg-black text-white rounded-xl shrink-0"><i data-lucide="pen-tool" class="w-6 h-6"></i></div>
+                    <div><h4 class="font-bold text-sm uppercase tracking-widest">Narrative Scripts</h4><p class="text-sm text-neutral-500">Hooks engineered for frame-one retention and brand loyalty.</p></div>
+                </div>
+                <div class="flex items-start gap-4 pb-4 border-b border-black/10">
+                    <div class="p-3 bg-black text-white rounded-xl shrink-0"><i data-lucide="search" class="w-6 h-6"></i></div>
+                    <div><h4 class="font-bold text-sm uppercase tracking-widest">Content Research</h4><p class="text-sm text-neutral-500">Data-driven deep dives to ensure market relevance.</p></div>
+                </div>
+                <div class="flex items-start gap-4">
+                    <div class="p-3 bg-black text-white rounded-xl shrink-0"><i data-lucide="check-circle-2" class="w-6 h-6"></i></div>
+                    <div><h4 class="font-bold text-sm uppercase tracking-widest">Visual Graphics</h4><p class="text-sm text-neutral-500">Motion design that stops the scroll instantly.</p></div>
+                </div>
+                <div class="flex items-start gap-4">
+                    <div class="p-3 bg-black text-white rounded-xl shrink-0"><i data-lucide="users" class="w-6 h-6"></i></div>
+                    <div><h4 class="font-bold text-sm uppercase tracking-widest">Collaborative</h4><p class="text-sm text-neutral-500">Fusing brand vision with high-ticket execution.</p></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Who This Is For + Services -->
+    <section id="services" class="py-32 px-6 bg-[#0a0a0a]">
+        <div class="max-w-7xl mx-auto">
+            <!-- Services -->
+            <div class="mb-24">
+                <p class="text-sm uppercase tracking-[0.3em] text-neutral-500 mb-4 font-black">What I Offer</p>
+                <h2 class="text-4xl md:text-6xl font-black tracking-tighter uppercase mb-16 leading-none">Services</h2>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div class="bg-neutral-900 border border-neutral-800 rounded-[2rem] p-10 flex flex-col gap-6 hover:border-neutral-600 transition-colors">
+                        <div class="p-3 bg-white text-black rounded-xl w-fit"><i data-lucide="file-text" class="w-6 h-6"></i></div>
+                        <div>
+                            <h3 class="text-xl font-black uppercase tracking-tight mb-2">Content Strategy & Scripting</h3>
+                            <p class="text-neutral-400 text-sm leading-relaxed">Narrative-driven scripts and content calendars built for retention. I research your niche, engineer the hook, and deliver a repeatable format your audience keeps coming back for.</p>
+                        </div>
+                    </div>
+                    <div class="bg-neutral-900 border border-neutral-800 rounded-[2rem] p-10 flex flex-col gap-6 hover:border-neutral-600 transition-colors">
+                        <div class="p-3 bg-white text-black rounded-xl w-fit"><i data-lucide="video" class="w-6 h-6"></i></div>
+                        <div>
+                            <h3 class="text-xl font-black uppercase tracking-tight mb-2">Video Editing & Post-Production</h3>
+                            <p class="text-neutral-400 text-sm leading-relaxed">Full editing, sound design, colour grading, and motion graphics for both short-form reels and long-form YouTube. Every cut is intentional — every second earns its place.</p>
+                        </div>
+                    </div>
+                    <div class="bg-neutral-900 border border-neutral-800 rounded-[2rem] p-10 flex flex-col gap-6 hover:border-neutral-600 transition-colors">
+                        <div class="p-3 bg-white text-black rounded-xl w-fit"><i data-lucide="trending-up" class="w-6 h-6"></i></div>
+                        <div>
+                            <h3 class="text-xl font-black uppercase tracking-tight mb-2">Community & Brand Growth</h3>
+                            <p class="text-neutral-400 text-sm leading-relaxed">End-to-end brand building from zero — content pillars, series formats, and community activation strategies designed to grow a loyal audience, not just views.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- Who This Is For -->
+            <div class="bg-neutral-900 border border-neutral-800 rounded-[2rem] p-10 md:p-16 flex flex-col lg:flex-row gap-12 items-start">
+                <div class="lg:w-1/2">
+                    <p class="text-sm uppercase tracking-[0.3em] text-neutral-500 mb-4 font-black">Is This For You?</p>
+                    <h2 class="text-4xl md:text-5xl font-black tracking-tighter uppercase leading-none mb-6">Who I <br/>Work With</h2>
+                    <p class="text-neutral-400 leading-relaxed">I work best with brands and creators who already have a story worth telling — and need someone to make the world pay attention to it.</p>
+                </div>
+                <div class="lg:w-1/2 space-y-4">
+                    <div class="flex items-start gap-4 p-5 bg-neutral-800/60 rounded-xl border border-neutral-700/40">
+                        <i data-lucide="check" class="w-5 h-5 text-white shrink-0 mt-0.5"></i>
+                        <p class="text-neutral-300 text-sm leading-relaxed"><span class="text-white font-bold">Automotive & lifestyle brands</span> wanting to build a social community from scratch or scale an existing one.</p>
+                    </div>
+                    <div class="flex items-start gap-4 p-5 bg-neutral-800/60 rounded-xl border border-neutral-700/40">
+                        <i data-lucide="check" class="w-5 h-5 text-white shrink-0 mt-0.5"></i>
+                        <p class="text-neutral-300 text-sm leading-relaxed"><span class="text-white font-bold">Events and IP owners</span> (festivals, rallies, competitions) who need signature video series and launch content.</p>
+                    </div>
+                    <div class="flex items-start gap-4 p-5 bg-neutral-800/60 rounded-xl border border-neutral-700/40">
+                        <i data-lucide="check" class="w-5 h-5 text-white shrink-0 mt-0.5"></i>
+                        <p class="text-neutral-300 text-sm leading-relaxed"><span class="text-white font-bold">Creators and founders</span> who produce great raw content but need a strategic editor to turn it into a growth engine.</p>
+                    </div>
+                    <div class="mt-6">
+                        <button onclick="openModal('hireMeModal')" class="inline-flex group bg-white text-black px-10 py-4 rounded-full font-black items-center gap-3 hover:scale-105 transition-transform uppercase tracking-widest text-sm shadow-lg">
+                            Book a Free Strategy Call <i data-lucide="arrow-right" class="w-4 h-4 group-hover:translate-x-1 transition-transform"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+
+    <!-- Best Work Sections -->
+    <section id="portfolio-section" class="py-32 bg-black overflow-hidden">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-24">
+                <p class="text-sm uppercase tracking-[0.4em] text-neutral-600 mb-4 font-black">curated</p>
+                <h2 class="text-5xl md:text-[8rem] font-black tracking-tighter uppercase mb-4 leading-none">best work</h2>
+            </div>
+
+
+
+
+            <!-- Horizontal Format (10 Videos) -->
+            <div class="mb-24">
+                <h3 class="text-2xl font-black uppercase mb-10 border-l-4 border-white pl-6">Horizontal Format</h3>
+                <div class="flex flex-nowrap overflow-x-auto gap-8 pb-10 snap-x custom-scrollbar">
+                    <a href="https://www.youtube.com/watch?v=dU9Nsgpn4pU" target="_blank" class="portfolio-item min-w-[85vw] md:min-w-[50vw] lg:min-w-[40vw] snap-center group relative aspect-video rounded-3xl overflow-hidden border border-neutral-800 transition-all duration-500 hover:border-white">
+                        <div class="absolute inset-0 bg-cover bg-center grayscale opacity-40 group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700" style="background-image: url('https://img.youtube.com/vi/dU9Nsgpn4pU/maxresdefault.jpg');"></div>
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-60"></div>
+                        <div class="absolute inset-0 flex items-center justify-center"><div class="w-16 h-16 bg-white rounded-full flex items-center justify-center text-black shadow-xl hover:scale-110 transition-transform"><i data-lucide="play" class="fill-black ml-1"></i></div></div>
+                        <div class="absolute bottom-6 left-6 right-6 text-left"><p class="text-[10px] uppercase tracking-widest text-neutral-400 mb-1 font-bold">88k Views</p><h4 class="text-xl font-black uppercase">Kerala Car Modification Scene</h4></div>
+                    </a>
+                    <a href="https://www.youtube.com/watch?v=Wuwu67Czzqw" target="_blank" class="portfolio-item min-w-[85vw] md:min-w-[50vw] lg:min-w-[40vw] snap-center group relative aspect-video rounded-3xl overflow-hidden border border-neutral-800 transition-all duration-500 hover:border-white">
+                        <div class="absolute inset-0 bg-cover bg-center grayscale opacity-40 group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700" style="background-image: url('https://img.youtube.com/vi/Wuwu67Czzqw/maxresdefault.jpg');"></div>
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-60"></div>
+                        <div class="absolute inset-0 flex items-center justify-center"><div class="w-16 h-16 bg-white rounded-full flex items-center justify-center text-black shadow-xl hover:scale-110 transition-transform"><i data-lucide="play" class="fill-black ml-1"></i></div></div>
+                        <div class="absolute bottom-6 left-6 right-6 text-left"><p class="text-[10px] uppercase tracking-widest text-neutral-400 mb-1 font-bold">66k Views</p><h4 class="text-xl font-black uppercase">World Tour | Elspeth Beard</h4></div>
+                    </a>
+                    <a href="https://www.youtube.com/watch?v=uFbVXO11UkU" target="_blank" class="portfolio-item min-w-[85vw] md:min-w-[50vw] lg:min-w-[40vw] snap-center group relative aspect-video rounded-3xl overflow-hidden border border-neutral-800 transition-all duration-500 hover:border-white">
+                        <div class="absolute inset-0 bg-cover bg-center grayscale opacity-40 group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700" style="background-image: url('https://img.youtube.com/vi/uFbVXO11UkU/maxresdefault.jpg');"></div>
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-60"></div>
+                        <div class="absolute inset-0 flex items-center justify-center"><div class="w-16 h-16 bg-white rounded-full flex items-center justify-center text-black shadow-xl hover:scale-110 transition-transform"><i data-lucide="play" class="fill-black ml-1"></i></div></div>
+                        <div class="absolute bottom-6 left-6 right-6 text-left"><p class="text-[10px] uppercase tracking-widest text-neutral-400 mb-1 font-bold">20k Views</p><h4 class="text-xl font-black uppercase">England to India Journey</h4></div>
+                    </a>
+                    <a href="https://www.youtube.com/watch?v=5qgFONQEmS8" target="_blank" class="portfolio-item min-w-[85vw] md:min-w-[50vw] lg:min-w-[40vw] snap-center group relative aspect-video rounded-3xl overflow-hidden border border-neutral-800 transition-all duration-500 hover:border-white">
+                        <div class="absolute inset-0 bg-cover bg-center grayscale opacity-40 group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700" style="background-image: url('https://img.youtube.com/vi/5qgFONQEmS8/maxresdefault.jpg');"></div>
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-60"></div>
+                        <div class="absolute inset-0 flex items-center justify-center"><div class="w-16 h-16 bg-white rounded-full flex items-center justify-center text-black shadow-xl hover:scale-110 transition-transform"><i data-lucide="play" class="fill-black ml-1"></i></div></div>
+                        <div class="absolute bottom-6 left-6 right-6 text-left"><p class="text-[10px] uppercase tracking-widest text-neutral-400 mb-1 font-bold">14k Views</p><h4 class="text-xl font-black uppercase">The Silk Road Trip | WanderDa</h4></div>
+                    </a>
+                    <a href="https://www.youtube.com/watch?v=wwICl_u-vPk" target="_blank" class="portfolio-item min-w-[85vw] md:min-w-[50vw] lg:min-w-[40vw] snap-center group relative aspect-video rounded-3xl overflow-hidden border border-neutral-800 transition-all duration-500 hover:border-white">
+                        <div class="absolute inset-0 bg-cover bg-center grayscale opacity-40 group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700" style="background-image: url('https://img.youtube.com/vi/wwICl_u-vPk/maxresdefault.jpg');"></div>
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-60"></div>
+                        <div class="absolute inset-0 flex items-center justify-center"><div class="w-16 h-16 bg-white rounded-full flex items-center justify-center text-black shadow-xl hover:scale-110 transition-transform"><i data-lucide="play" class="fill-black ml-1"></i></div></div>
+                        <div class="absolute bottom-6 left-6 right-6 text-left"><p class="text-[10px] uppercase tracking-widest text-neutral-400 mb-1 font-bold">6k Views</p><h4 class="text-xl font-black uppercase">Bengaluru to Paris | Sedan</h4></div>
+                    </a>
+                    <a href="https://www.youtube.com/watch?v=37lxaNunyzM" target="_blank" class="portfolio-item min-w-[85vw] md:min-w-[50vw] lg:min-w-[40vw] snap-center group relative aspect-video rounded-3xl overflow-hidden border border-neutral-800 transition-all duration-500 hover:border-white">
+                        <div class="absolute inset-0 bg-cover bg-center grayscale opacity-40 group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700" style="background-image: url('https://img.youtube.com/vi/37lxaNunyzM/maxresdefault.jpg');"></div>
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-60"></div>
+                        <div class="absolute inset-0 flex items-center justify-center"><div class="w-16 h-16 bg-white rounded-full flex items-center justify-center text-black shadow-xl hover:scale-110 transition-transform"><i data-lucide="play" class="fill-black ml-1"></i></div></div>
+                        <div class="absolute bottom-6 left-6 right-6 text-left"><p class="text-[10px] uppercase tracking-widest text-neutral-400 mb-1 font-bold">5.4k Views</p><h4 class="text-xl font-black uppercase">Mumbai to London | 28k km</h4></div>
+                    </a>
+                    <a href="https://www.youtube.com/watch?v=8GdKnZtmWfw" target="_blank" class="portfolio-item min-w-[85vw] md:min-w-[50vw] lg:min-w-[40vw] snap-center group relative aspect-video rounded-3xl overflow-hidden border border-neutral-800 transition-all duration-500 hover:border-white">
+                        <div class="absolute inset-0 bg-cover bg-center grayscale opacity-40 group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700" style="background-image: url('https://img.youtube.com/vi/8GdKnZtmWfw/maxresdefault.jpg');"></div>
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-60"></div>
+                        <div class="absolute inset-0 flex items-center justify-center"><div class="w-16 h-16 bg-white rounded-full flex items-center justify-center text-black shadow-xl hover:scale-110 transition-transform"><i data-lucide="play" class="fill-black ml-1"></i></div></div>
+                        <div class="absolute bottom-6 left-6 right-6 text-left"><p class="text-[10px] uppercase tracking-widest text-neutral-400 mb-1 font-bold">4.8k Views</p><h4 class="text-xl font-black uppercase">Europe in the 1970s</h4></div>
+                    </a>
+                    <a href="https://www.youtube.com/watch?v=t1QEABeezt4" target="_blank" class="portfolio-item min-w-[85vw] md:min-w-[50vw] lg:min-w-[40vw] snap-center group relative aspect-video rounded-3xl overflow-hidden border border-neutral-800 transition-all duration-500 hover:border-white">
+                        <div class="absolute inset-0 bg-cover bg-center grayscale opacity-40 group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700" style="background-image: url('https://img.youtube.com/vi/t1QEABeezt4/maxresdefault.jpg');"></div>
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-60"></div>
+                        <div class="absolute inset-0 flex items-center justify-center"><div class="w-16 h-16 bg-white rounded-full flex items-center justify-center text-black shadow-xl hover:scale-110 transition-transform"><i data-lucide="play" class="fill-black ml-1"></i></div></div>
+                        <div class="absolute bottom-6 left-6 right-6 text-left"><p class="text-[10px] uppercase tracking-widest text-neutral-400 mb-1 font-bold">1.9k Views</p><h4 class="text-xl font-black uppercase">World's Longest Bus Route</h4></div>
+                    </a>
+                    <a href="https://www.youtube.com/watch?v=f6bTfaxE1Qw" target="_blank" class="portfolio-item min-w-[85vw] md:min-w-[50vw] lg:min-w-[40vw] snap-center group relative aspect-video rounded-3xl overflow-hidden border border-neutral-800 transition-all duration-500 hover:border-white">
+                        <div class="absolute inset-0 bg-cover bg-center grayscale opacity-40 group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700" style="background-image: url('https://img.youtube.com/vi/f6bTfaxE1Qw/maxresdefault.jpg');"></div>
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-60"></div>
+                        <div class="absolute inset-0 flex items-center justify-center"><div class="w-16 h-16 bg-white rounded-full flex items-center justify-center text-black shadow-xl hover:scale-110 transition-transform"><i data-lucide="play" class="fill-black ml-1"></i></div></div>
+                        <div class="absolute bottom-6 left-6 right-6 text-left"><p class="text-[10px] uppercase tracking-widest text-neutral-400 mb-1 font-bold">1.9k Views</p><h4 class="text-xl font-black uppercase">The OG Land Rover</h4></div>
+                    </a>
+                    <a href="https://www.youtube.com/watch?v=ME4ICzZTPMQ" target="_blank" class="portfolio-item min-w-[85vw] md:min-w-[50vw] lg:min-w-[40vw] snap-center group relative aspect-video rounded-3xl overflow-hidden border border-neutral-800 transition-all duration-500 hover:border-white">
+                        <div class="absolute inset-0 bg-cover bg-center grayscale opacity-40 group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700" style="background-image: url('https://img.youtube.com/vi/ME4ICzZTPMQ/maxresdefault.jpg');"></div>
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-60"></div>
+                        <div class="absolute inset-0 flex items-center justify-center"><div class="w-16 h-16 bg-white rounded-full flex items-center justify-center text-black shadow-xl hover:scale-110 transition-transform"><i data-lucide="play" class="fill-black ml-1"></i></div></div>
+                        <div class="absolute bottom-6 left-6 right-6 text-left"><p class="text-[10px] uppercase tracking-widest text-neutral-400 mb-1 font-bold">1.7k Views</p><h4 class="text-xl font-black uppercase">Woman Who Crossed Continents</h4></div>
+                    </a>
+                </div>
+            </div>
+
+
+
+
+                        <!-- Vertical Format (12 Videos) -->
+            <div>
+                <h3 class="text-2xl font-black uppercase mb-10 border-l-4 border-white pl-6">Vertical Format</h3>
+                <div class="flex flex-nowrap overflow-x-auto gap-6 pb-10 snap-x custom-scrollbar">
+                    
+                    <a href="https://www.instagram.com/reel/C97b7heNWrz/" target="_blank" class="portfolio-item min-w-[70vw] sm:min-w-[45vw] md:min-w-[30vw] lg:min-w-[22vw] snap-center group relative aspect-[9/16] rounded-3xl overflow-hidden border border-neutral-800 transition-all duration-500 hover:border-white">
+                        <img src="assets/Image-112.jpg" class="absolute inset-0 w-full h-full object-cover grayscale opacity-60 group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700" alt="Video">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-80"></div>
+                        <div class="absolute inset-0 flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity bg-black/40 backdrop-blur-sm">
+                            <div class="bg-white text-black px-6 py-3 rounded-full font-bold uppercase tracking-widest text-xs flex items-center gap-2 mb-3 shadow-xl">
+                                <i data-lucide="play" class="w-4 h-4"></i> Click to watch the video
+                            </div>
+                        </div>
+                        <div class="absolute bottom-6 left-6 right-6 text-left pointer-events-none">
+                            <h4 class="text-3xl font-black text-white mb-1 drop-shadow-lg">300K+</h4>
+                            <p class="text-[10px] uppercase tracking-widest text-neutral-300 font-bold">Views</p>
+                        </div>
+                    </a>
+
+
+                    <a href="https://www.instagram.com/reel/DBG2dCvowPn/" target="_blank" class="portfolio-item min-w-[70vw] sm:min-w-[45vw] md:min-w-[30vw] lg:min-w-[22vw] snap-center group relative aspect-[9/16] rounded-3xl overflow-hidden border border-neutral-800 transition-all duration-500 hover:border-white">
+                        <img src="assets/Image-447.jpg" class="absolute inset-0 w-full h-full object-cover grayscale opacity-60 group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700" alt="Video">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-80"></div>
+                        <div class="absolute inset-0 flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity bg-black/40 backdrop-blur-sm">
+                            <div class="bg-white text-black px-6 py-3 rounded-full font-bold uppercase tracking-widest text-xs flex items-center gap-2 mb-3 shadow-xl">
+                                <i data-lucide="play" class="w-4 h-4"></i> Click to watch the video
+                            </div>
+                        </div>
+                        <div class="absolute bottom-6 left-6 right-6 text-left pointer-events-none">
+                            <h4 class="text-3xl font-black text-white mb-1 drop-shadow-lg">300K+</h4>
+                            <p class="text-[10px] uppercase tracking-widest text-neutral-300 font-bold">Views</p>
+                        </div>
+                    </a>
+
+
+                    <a href="https://www.instagram.com/reel/DAOEkftNN8w/" target="_blank" class="portfolio-item min-w-[70vw] sm:min-w-[45vw] md:min-w-[30vw] lg:min-w-[22vw] snap-center group relative aspect-[9/16] rounded-3xl overflow-hidden border border-neutral-800 transition-all duration-500 hover:border-white">
+                        <img src="assets/Image-519.jpg" class="absolute inset-0 w-full h-full object-cover grayscale opacity-60 group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700" alt="Video">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-80"></div>
+                        <div class="absolute inset-0 flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity bg-black/40 backdrop-blur-sm">
+                            <div class="bg-white text-black px-6 py-3 rounded-full font-bold uppercase tracking-widest text-xs flex items-center gap-2 mb-3 shadow-xl">
+                                <i data-lucide="play" class="w-4 h-4"></i> Click to watch the video
+                            </div>
+                        </div>
+                        <div class="absolute bottom-6 left-6 right-6 text-left pointer-events-none">
+                            <h4 class="text-3xl font-black text-white mb-1 drop-shadow-lg">20K</h4>
+                            <p class="text-[10px] uppercase tracking-widest text-neutral-300 font-bold">Views</p>
+                        </div>
+                    </a>
+
+
+                    <a href="https://www.instagram.com/reel/C6oQRz6N541/" target="_blank" class="portfolio-item min-w-[70vw] sm:min-w-[45vw] md:min-w-[30vw] lg:min-w-[22vw] snap-center group relative aspect-[9/16] rounded-3xl overflow-hidden border border-neutral-800 transition-all duration-500 hover:border-white">
+                        <img src="assets/Image-174.jpg" class="absolute inset-0 w-full h-full object-cover grayscale opacity-60 group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700" alt="Video">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-80"></div>
+                        <div class="absolute inset-0 flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity bg-black/40 backdrop-blur-sm">
+                            <div class="bg-white text-black px-6 py-3 rounded-full font-bold uppercase tracking-widest text-xs flex items-center gap-2 mb-3 shadow-xl">
+                                <i data-lucide="play" class="w-4 h-4"></i> Click to watch the video
+                            </div>
+                        </div>
+                        <div class="absolute bottom-6 left-6 right-6 text-left pointer-events-none">
+                            <h4 class="text-3xl font-black text-white mb-1 drop-shadow-lg">500K+</h4>
+                            <p class="text-[10px] uppercase tracking-widest text-neutral-300 font-bold">Views</p>
+                        </div>
+                    </a>
+
+
+                    <a href="https://www.instagram.com/reel/DDcCwGcNewy/" target="_blank" class="portfolio-item min-w-[70vw] sm:min-w-[45vw] md:min-w-[30vw] lg:min-w-[22vw] snap-center group relative aspect-[9/16] rounded-3xl overflow-hidden border border-neutral-800 transition-all duration-500 hover:border-white">
+                        <img src="assets/Image-535.jpg" class="absolute inset-0 w-full h-full object-cover grayscale opacity-60 group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700" alt="Video">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-80"></div>
+                        <div class="absolute inset-0 flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity bg-black/40 backdrop-blur-sm">
+                            <div class="bg-white text-black px-6 py-3 rounded-full font-bold uppercase tracking-widest text-xs flex items-center gap-2 mb-3 shadow-xl">
+                                <i data-lucide="play" class="w-4 h-4"></i> Click to watch the video
+                            </div>
+                        </div>
+                        <div class="absolute bottom-6 left-6 right-6 text-left pointer-events-none">
+                            <h4 class="text-3xl font-black text-white mb-1 drop-shadow-lg">90K+</h4>
+                            <p class="text-[10px] uppercase tracking-widest text-neutral-300 font-bold">Views</p>
+                        </div>
+                    </a>
+
+
+                    <a href="https://www.instagram.com/reel/DMDRMdmReVn/" target="_blank" class="portfolio-item min-w-[70vw] sm:min-w-[45vw] md:min-w-[30vw] lg:min-w-[22vw] snap-center group relative aspect-[9/16] rounded-3xl overflow-hidden border border-neutral-800 transition-all duration-500 hover:border-white">
+                        <img src="assets/Image-434.jpg" class="absolute inset-0 w-full h-full object-cover grayscale opacity-60 group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700" alt="Video">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-80"></div>
+                        <div class="absolute inset-0 flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity bg-black/40 backdrop-blur-sm">
+                            <div class="bg-white text-black px-6 py-3 rounded-full font-bold uppercase tracking-widest text-xs flex items-center gap-2 mb-3 shadow-xl">
+                                <i data-lucide="play" class="w-4 h-4"></i> Click to watch the video
+                            </div>
+                        </div>
+                        <div class="absolute bottom-6 left-6 right-6 text-left pointer-events-none">
+                            <h4 class="text-3xl font-black text-white mb-1 drop-shadow-lg">45K</h4>
+                            <p class="text-[10px] uppercase tracking-widest text-neutral-300 font-bold">Views</p>
+                        </div>
+                    </a>
+
+
+                    <a href="https://www.instagram.com/reel/DKmixT6NgqJ/" target="_blank" class="portfolio-item min-w-[70vw] sm:min-w-[45vw] md:min-w-[30vw] lg:min-w-[22vw] snap-center group relative aspect-[9/16] rounded-3xl overflow-hidden border border-neutral-800 transition-all duration-500 hover:border-white">
+                        <img src="assets/Image-486.jpg" class="absolute inset-0 w-full h-full object-cover grayscale opacity-60 group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700" alt="Video">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-80"></div>
+                        <div class="absolute inset-0 flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity bg-black/40 backdrop-blur-sm">
+                            <div class="bg-white text-black px-6 py-3 rounded-full font-bold uppercase tracking-widest text-xs flex items-center gap-2 mb-3 shadow-xl">
+                                <i data-lucide="play" class="w-4 h-4"></i> Click to watch the video
+                            </div>
+                        </div>
+                        <div class="absolute bottom-6 left-6 right-6 text-left pointer-events-none">
+                            <h4 class="text-3xl font-black text-white mb-1 drop-shadow-lg">21K+</h4>
+                            <p class="text-[10px] uppercase tracking-widest text-neutral-300 font-bold">Views</p>
+                        </div>
+                    </a>
+
+
+                    <a href="https://www.instagram.com/reel/C9U1KHsSX3T/" target="_blank" class="portfolio-item min-w-[70vw] sm:min-w-[45vw] md:min-w-[30vw] lg:min-w-[22vw] snap-center group relative aspect-[9/16] rounded-3xl overflow-hidden border border-neutral-800 transition-all duration-500 hover:border-white">
+                        <img src="assets/Mumbai to london.jpeg" class="absolute inset-0 w-full h-full object-cover grayscale opacity-60 group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700" alt="Video">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-80"></div>
+                        <div class="absolute inset-0 flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity bg-black/40 backdrop-blur-sm">
+                            <div class="bg-white text-black px-6 py-3 rounded-full font-bold uppercase tracking-widest text-xs flex items-center gap-2 mb-3 shadow-xl">
+                                <i data-lucide="play" class="w-4 h-4"></i> Click to watch the video
+                            </div>
+                        </div>
+                        <div class="absolute bottom-6 left-6 right-6 text-left pointer-events-none">
+                            <h4 class="text-3xl font-black text-white mb-1 drop-shadow-lg">300K+</h4>
+                            <p class="text-[10px] uppercase tracking-widest text-neutral-300 font-bold">Views</p>
+                        </div>
+                    </a>
+
+
+                    <a href="https://www.instagram.com/reel/C-SlmrYIZgJ/" target="_blank" class="portfolio-item min-w-[70vw] sm:min-w-[45vw] md:min-w-[30vw] lg:min-w-[22vw] snap-center group relative aspect-[9/16] rounded-3xl overflow-hidden border border-neutral-800 transition-all duration-500 hover:border-white">
+                        <img src="assets/SINGAPORE TO CZECH.jpg" class="absolute inset-0 w-full h-full object-cover grayscale opacity-60 group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700" alt="Video">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-80"></div>
+                        <div class="absolute inset-0 flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity bg-black/40 backdrop-blur-sm">
+                            <div class="bg-white text-black px-6 py-3 rounded-full font-bold uppercase tracking-widest text-xs flex items-center gap-2 mb-3 shadow-xl">
+                                <i data-lucide="play" class="w-4 h-4"></i> Click to watch the video
+                            </div>
+                        </div>
+                        <div class="absolute bottom-6 left-6 right-6 text-left pointer-events-none">
+                            <h4 class="text-3xl font-black text-white mb-1 drop-shadow-lg">500K+</h4>
+                            <p class="text-[10px] uppercase tracking-widest text-neutral-300 font-bold">Views</p>
+                        </div>
+                    </a>
+
+
+                    <a href="https://www.instagram.com/reel/DQN4x0xiKR_/" target="_blank" class="portfolio-item min-w-[70vw] sm:min-w-[45vw] md:min-w-[30vw] lg:min-w-[22vw] snap-center group relative aspect-[9/16] rounded-3xl overflow-hidden border border-neutral-800 transition-all duration-500 hover:border-white">
+                        <img src="assets/Gs launch film.jpg" class="absolute inset-0 w-full h-full object-cover grayscale opacity-60 group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700" alt="Video">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-80"></div>
+                        <div class="absolute inset-0 flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity bg-black/40 backdrop-blur-sm">
+                            <div class="bg-white text-black px-6 py-3 rounded-full font-bold uppercase tracking-widest text-xs flex items-center gap-2 mb-3 shadow-xl">
+                                <i data-lucide="play" class="w-4 h-4"></i> Click to watch the video
+                            </div>
+                        </div>
+                        <div class="absolute bottom-6 left-6 right-6 text-left pointer-events-none">
+                            <h4 class="text-3xl font-black text-white mb-1 drop-shadow-lg">110K+</h4>
+                            <p class="text-[10px] uppercase tracking-widest text-neutral-300 font-bold">Views</p>
+                        </div>
+                    </a>
+
+
+                    <a href="https://www.instagram.com/reel/DIqxV9VzMAe/" target="_blank" class="portfolio-item min-w-[70vw] sm:min-w-[45vw] md:min-w-[30vw] lg:min-w-[22vw] snap-center group relative aspect-[9/16] rounded-3xl overflow-hidden border border-neutral-800 transition-all duration-500 hover:border-white">
+                        <img src="assets/Image-173.jpg" class="absolute inset-0 w-full h-full object-cover grayscale opacity-60 group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700" alt="Video">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-80"></div>
+                        <div class="absolute inset-0 flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity bg-black/40 backdrop-blur-sm">
+                            <div class="bg-white text-black px-6 py-3 rounded-full font-bold uppercase tracking-widest text-xs flex items-center gap-2 mb-3 shadow-xl">
+                                <i data-lucide="play" class="w-4 h-4"></i> Click to watch the video
+                            </div>
+                        </div>
+                        <div class="absolute bottom-6 left-6 right-6 text-left pointer-events-none">
+                            <h4 class="text-3xl font-black text-white mb-1 drop-shadow-lg">90K</h4>
+                            <p class="text-[10px] uppercase tracking-widest text-neutral-300 font-bold">Views</p>
+                        </div>
+                    </a>
+
+
+                    <a href="https://www.instagram.com/reel/DKzSeR8TuL6/" target="_blank" class="portfolio-item min-w-[70vw] sm:min-w-[45vw] md:min-w-[30vw] lg:min-w-[22vw] snap-center group relative aspect-[9/16] rounded-3xl overflow-hidden border border-neutral-800 transition-all duration-500 hover:border-white">
+                        <img src="assets/Image-397.jpg" class="absolute inset-0 w-full h-full object-cover grayscale opacity-60 group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700" alt="Video">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-80"></div>
+                        <div class="absolute inset-0 flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity bg-black/40 backdrop-blur-sm">
+                            <div class="bg-white text-black px-6 py-3 rounded-full font-bold uppercase tracking-widest text-xs flex items-center gap-2 mb-3 shadow-xl">
+                                <i data-lucide="play" class="w-4 h-4"></i> Click to watch the video
+                            </div>
+                        </div>
+                        <div class="absolute bottom-6 left-6 right-6 text-left pointer-events-none">
+                            <h4 class="text-3xl font-black text-white mb-1 drop-shadow-lg">120K</h4>
+                            <p class="text-[10px] uppercase tracking-widest text-neutral-300 font-bold">Views</p>
+                        </div>
+                    </a>
+
+
+
+
+                </div>
+            </div>
+
+
+
+
+            <!-- CTA -->
+            <div class="mt-32 text-center space-y-8">
+                <h3 class="text-3xl font-bold italic">Ready to scale your vision?</h3>
+                <button onclick="openModal('hireMeModal')" class="inline-block bg-white text-black px-12 py-5 rounded-full text-lg font-black tracking-widest hover:bg-neutral-200 transition-all uppercase">
+                    Book a Free Strategy Call
+                </button>
+            </div>
+        </div>
+    </section>
+
+
+
+
+    <!-- Footer -->
+    <footer class="py-20 border-t border-neutral-900 px-6 bg-neutral-950 text-center pb-28 md:pb-20">
+        <h2 class="text-2xl font-black uppercase mb-8 tracking-tighter">Vyankatesh Marothiya</h2>
+        <div class="flex justify-center gap-8 text-neutral-500 mb-12">
+            <a href="https://www.linkedin.com/in/vyankatesh-marothiya-18b40a17b/" target="_blank"><i data-lucide="linkedin" class="hover:text-white transition-colors"></i></a>
+            <a href="mailto:Vyankateshmarothiya0077@gmail.com" target="_blank"><i data-lucide="mail" class="hover:text-white transition-colors"></i></a>
+        </div>
+        <p class="text-[10px] text-neutral-800 uppercase tracking-[0.5em] font-black">© 2024 MAROTHIYA CREATIVE</p>
+    </footer>
+
+
+    <!-- Mobile Sticky CTA Bar -->
+    <div class="fixed bottom-0 left-0 right-0 z-40 md:hidden px-4 pb-4 pt-2 bg-gradient-to-t from-black via-black/95 to-transparent">
+        <button onclick="openModal('hireMeModal')" class="w-full bg-white text-black py-4 rounded-full font-black uppercase tracking-widest text-sm shadow-2xl hover:bg-neutral-200 transition-colors flex items-center justify-center gap-2">
+            <i data-lucide="phone-call" class="w-4 h-4"></i>
+            Book a Free Strategy Call
+        </button>
+    </div>
+
+
+
+
+    <script>
+        lucide.createIcons();
+
+
+
+
+        // Navbar Logic
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) { navbar.classList.add('bg-neutral-950/95', 'backdrop-blur-md', 'py-4', 'border-b', 'border-neutral-900'); navbar.classList.remove('py-8'); }
+            else { navbar.classList.remove('bg-neutral-950/95', 'backdrop-blur-md', 'py-4', 'border-b', 'border-neutral-900'); navbar.classList.add('py-8'); }
+        });
+
+
+
+
+        // Case Study Detailed Content
+        const caseStudyData = {
+            gs: {
+                title: "Engineering an Online Community",
+                subtitle: "Generation Speed: 0 to 60k Organic Growth",
+                role: "Video Editing, Script Writing & Content Concept Design",
+                accent: "text-gs-green",
+                content: `
+                    <div class="space-y-20 pb-20">
+                        <section>
+                            <h4 class="text-2xl font-black mb-8 uppercase text-gs-green tracking-widest border-b border-gs-green/20 pb-4">The Situation & Challenge</h4>
+                            <p class="text-neutral-300 text-xl leading-relaxed max-w-4xl">
+                                The objective was to launch <span class="text-white font-bold">"Generation Speed"</span>, a new car event brand, by first building an online community. We started from a <span class="text-white">blank slate</span>. In a saturated market, the challenge was to create high-value content that didn't just look like advertising, but felt made by enthusiasts for enthusiasts, to earn those first 60,000 followers organically.
+                            </p>
+                        </section>
+                        <section>
+                            <h4 class="text-2xl font-black mb-12 uppercase text-gs-green tracking-widest border-b border-gs-green/20 pb-4">The Action (Our Process)</h4>
+                            <p class="text-neutral-400 text-lg mb-12">We acted as visual architects, using video editing and concept design to give the brand immediate credibility and voice through these lead properties:</p>
+                            
+                            <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+                                <div class="space-y-6 flex flex-col items-center">
+                                    <a href="https://www.instagram.com/reel/C5pno6atKaU/" target="_blank" class="w-full max-w-[320px] aspect-[9/16] relative rounded-[2rem] overflow-hidden shadow-2xl border border-gs-green/30 group block mx-auto">
+                                        <img src="assets/mod-scout.jpeg" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" alt="Mod Scout">
+                                        <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent"></div>
+                                        <div class="absolute inset-0 flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity bg-black/40 backdrop-blur-sm">
+                                            <div class="bg-gs-green text-white px-6 py-3 rounded-full font-bold uppercase tracking-widest text-xs flex items-center gap-2 mb-3">
+                                                <i data-lucide="play" class="w-4 h-4"></i> Click to watch the video
+                                            </div>
+                                        </div>
+                                        <div class="absolute bottom-6 left-0 w-full text-center">
+                                            <span class="text-3xl font-black text-white drop-shadow-lg">22M+ Views</span>
+                                        </div>
+                                    </a>
+                                    <div class="px-4 text-center">
+                                        <h5 class="text-gs-green font-black uppercase text-sm tracking-widest mb-2">Mod Scout (@b.chow)</h5>
+                                        <p class="text-sm text-neutral-400 leading-snug">focusing on the country&#39;s best modified car builds.</p>
+                                    </div>
+                                </div>
+
+
+
+
+                                <div class="space-y-6 flex flex-col items-center">
+                                    <a href="https://www.instagram.com/reel/C5qWp7kCg7m/" target="_blank" class="w-full max-w-[320px] aspect-[9/16] relative rounded-[2rem] overflow-hidden shadow-2xl border border-gs-green/30 group block mx-auto">
+                                        <img src="assets/speed-shikhari.jpeg" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" alt="Speed Shikari">
+                                        <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent"></div>
+                                        <div class="absolute inset-0 flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity bg-black/40 backdrop-blur-sm">
+                                            <div class="bg-gs-green text-white px-6 py-3 rounded-full font-bold uppercase tracking-widest text-xs flex items-center gap-2 mb-3">
+                                                <i data-lucide="play" class="w-4 h-4"></i> Click to watch the video
+                                            </div>
+                                        </div>
+                                        <div class="absolute bottom-6 left-0 w-full text-center">
+                                            <span class="text-3xl font-black text-white drop-shadow-lg">14M+ Views</span>
+                                        </div>
+                                    </a>
+                                    <div class="px-4 text-center">
+                                        <h5 class="text-gs-green font-black uppercase text-sm tracking-widest mb-2">Speed Shikari</h5>
+                                        <p class="text-sm text-neutral-400 leading-snug">featuring top-speed runs and pure engine performance.</p>
+                                    </div>
+                                </div>
+
+
+
+
+                                <div class="space-y-6 flex flex-col items-center">
+                                    <a href="https://www.instagram.com/reel/C5u3ce8OTj3/" target="_blank" class="w-full max-w-[320px] aspect-[9/16] relative rounded-[2rem] overflow-hidden shadow-2xl border border-gs-green/30 group block mx-auto">
+                                        <img src="assets/pathfinder.jpeg" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" alt="Pathfinders">
+                                        <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent"></div>
+                                        <div class="absolute inset-0 flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity bg-black/40 backdrop-blur-sm">
+                                            <div class="bg-gs-green text-white px-6 py-3 rounded-full font-bold uppercase tracking-widest text-xs flex items-center gap-2 mb-3">
+                                                <i data-lucide="play" class="w-4 h-4"></i> Click to watch the video
+                                            </div>
+                                        </div>
+                                        <div class="absolute bottom-6 left-0 w-full text-center">
+                                            <span class="text-3xl font-black text-white drop-shadow-lg">5M+ Views</span>
+                                        </div>
+                                    </a>
+                                    <div class="px-4 text-center">
+                                        <h5 class="text-gs-green font-black uppercase text-sm tracking-widest mb-2">Pathfinders</h5>
+                                        <p class="text-sm text-neutral-400 leading-snug">Story-driven, documentary-style edits featuring global overlanding and travel narratives.</p>
+                                    </div>
+                                </div>
+                            </div>
+
+
+
+
+                            <div class="mt-24 bg-neutral-900/50 p-8 md:p-16 rounded-[3rem] border border-gs-green/20 flex flex-col lg:flex-row gap-16 items-center shadow-2xl">
+                                <div class="w-full lg:w-1/2 flex justify-center">
+                                    <a href="https://www.instagram.com/reel/C79QiZSNKWu/" target="_blank" class="w-full max-w-[400px] aspect-[4/5] relative rounded-[2rem] overflow-hidden shadow-2xl border border-gs-green/30 group block mx-auto">
+                                        <img src="assets/we-are-gens.jpeg" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" alt="We Are Gen S">
+                                        <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent"></div>
+                                        <div class="absolute inset-0 flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity bg-black/40 backdrop-blur-sm">
+                                            <div class="bg-gs-green text-white px-6 py-3 rounded-full font-bold uppercase tracking-widest text-xs flex items-center gap-2 mb-3">
+                                                <i data-lucide="play" class="w-4 h-4"></i> Click to watch the video
+                                            </div>
+                                        </div>
+                                        <div class="absolute bottom-6 left-0 w-full text-center">
+                                            <span class="text-3xl font-black text-white drop-shadow-lg">1M+ Views</span>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="lg:w-1/2 space-y-6 max-w-3xl">
+                                    <h5 class="text-3xl font-black text-gs-green uppercase leading-tight">The "We are GEN S" Campaign</h5>
+                                    <p class="text-neutral-300 text-lg leading-relaxed">Cornerstone launch film featuring icons from drifting and racing. This served as the <span class="text-white font-bold">"manifesto"</span> for the community, signaling what the brand stood for.</p>
+                                </div>
+                            </div>
+                        </section>
+                        <section class="bg-gs-green p-10 md:p-20 rounded-[4rem] text-white grid grid-cols-1 md:grid-cols-3 gap-12 text-center shadow-2xl border border-gs-green/50">
+                            <div><span class="block text-7xl font-black mb-2 tracking-tighter">60k+</span><p class="uppercase font-black text-sm tracking-widest opacity-80 text-neutral-300">Followers in 1 Year</p></div>
+                            <div><span class="block text-7xl font-black mb-2 tracking-tighter">Gen S</span><p class="uppercase font-black text-sm tracking-widest opacity-80 text-neutral-300">Enthusiast Ecosystem</p></div>
+                            <div><span class="block text-7xl font-black mb-2 tracking-tighter">SUCCESS</span><p class="uppercase font-black text-sm tracking-widest opacity-80 text-neutral-300">Market Entry Defined</p></div>
+                        </section>
+                    </div>
+                `
+            },
+            ibw: {
+                title: "Launching 'Big Trips' Series",
+                subtitle: "India Bike Week: Narrative Engineering",
+                role: "Narrative Format Design & Lead Video Editor",
+                accent: "text-ibw-red",
+                content: `
+                    <div class="space-y-20 pb-20">
+                        <section>
+                            <h4 class="text-2xl font-black mb-8 uppercase text-ibw-red tracking-widest border-b border-ibw-red/20 pb-4">The Situation & Challenge</h4>
+                            <p class="text-neutral-300 text-xl leading-relaxed max-w-4xl">India Bike Week wanted to launch <span class="text-white font-bold">"Big Trips"</span>—a series featuring global overlanders. The raw recordings lacked a "hook," making them uninteresting for fast-paced social media. The goal: Build a repeatable, high-retention format.</p>
+                        </section>
+                        <section>
+                            <h4 class="text-2xl font-black mb-12 uppercase text-ibw-red tracking-widest border-b border-ibw-red/20 pb-4">The Action (Our Process)</h4>
+                            <div class="grid grid-cols-1 md:grid-cols-3 gap-10 mb-20">
+                                <div class="bg-neutral-900 p-8 rounded-3xl border border-white/5 space-y-4">
+                                    <span class="text-4xl font-black text-ibw-red">01</span>
+                                    <h5 class="text-white font-black uppercase text-sm tracking-widest">The Challenge</h5>
+                                    <p class="text-neutral-400 text-sm">Opening with the most dangerous moment to lock viewers in frame-one.</p>
+                                </div>
+                                <div class="bg-neutral-900 p-8 rounded-3xl border border-white/5 space-y-4">
+                                    <span class="text-4xl font-black text-ibw-red">02</span>
+                                    <h5 class="text-white font-black uppercase text-sm tracking-widest">The Big Idea</h5>
+                                    <p class="text-neutral-400 text-sm">Introducing the overlander's motivation—the "why" behind the journey.</p>
+                                </div>
+                                <div class="bg-neutral-900 p-8 rounded-3xl border border-white/5 space-y-4">
+                                    <span class="text-4xl font-black text-ibw-red">03</span>
+                                    <h5 class="text-white font-black uppercase text-sm tracking-widest">The Action</h5>
+                                    <p class="text-neutral-400 text-sm">Focusing on payoff and grit through sound design and B-roll overlays.</p>
+                                </div>
+                            </div>
+                            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                                <div class="space-y-10 flex flex-col items-center">
+                                    
+                                    <a href="https://www.instagram.com/reel/C9U1KHsSX3T/" target="_blank" class="w-full max-w-[320px] aspect-[9/16] relative rounded-[2rem] overflow-hidden shadow-2xl border border-ibw-red/30 group block mx-auto">
+                                        <img src="assets/Mumbai to london.jpeg" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" alt="Big Trip 1">
+                                        <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent"></div>
+                                        <div class="absolute inset-0 flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity bg-black/40 backdrop-blur-sm">
+                                            <div class="bg-ibw-red text-white px-6 py-3 rounded-full font-bold uppercase tracking-widest text-xs flex items-center gap-2 mb-3">
+                                                <i data-lucide="play" class="w-4 h-4"></i> Click to watch the video
+                                            </div>
+                                        </div>
+                                        <div class="absolute bottom-6 left-0 w-full text-center">
+                                            <span class="text-3xl font-black text-white drop-shadow-lg">5M+ Views</span>
+                                        </div>
+                                    </a>
+
+
+
+
+                                    <a href="https://www.instagram.com/reel/C-SlmrYIZgJ/" target="_blank" class="w-full max-w-[320px] aspect-[9/16] relative rounded-[2rem] overflow-hidden shadow-2xl border border-ibw-red/30 group block mx-auto">
+                                        <img src="assets/SINGAPORE TO CZECH.jpg" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" alt="Big Trip 2">
+                                        <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent"></div>
+                                        <div class="absolute inset-0 flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity bg-black/40 backdrop-blur-sm">
+                                            <div class="bg-ibw-red text-white px-6 py-3 rounded-full font-bold uppercase tracking-widest text-xs flex items-center gap-2 mb-3">
+                                                <i data-lucide="play" class="w-4 h-4"></i> Click to watch the video
+                                            </div>
+                                        </div>
+                                        <div class="absolute bottom-6 left-0 w-full text-center">
+                                            <span class="text-3xl font-black text-white drop-shadow-lg">5M+ Views</span>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="space-y-8">
+                                    <h5 class="text-3xl font-black text-ibw-red uppercase leading-tight">The "Power Intro" Strategy</h5>
+                                    <p class="text-neutral-300 text-lg leading-relaxed">We designed a signature high-energy intro acting as a visual <span class="text-white font-bold">"jolt"</span>. We aggressively cut "boring" segments to maintain 100k+ view benchmarks.</p>
+                                </div>
+                            </div>
+                        </section>
+                        <section class="bg-ibw-red p-10 md:p-20 rounded-[4rem] text-white grid grid-cols-1 md:grid-cols-3 gap-12 text-center shadow-2xl">
+                            <div><span class="block text-7xl font-black mb-2 tracking-tighter">100k+</span><p class="uppercase font-black text-sm tracking-widest opacity-80 text-black">Views Per Reel</p></div>
+                            <div><span class="block text-7xl font-black mb-2 tracking-tighter">FORMULA</span><p class="uppercase font-black text-sm tracking-widest opacity-80 text-black">Success Repeatability</p></div>
+                            <div><span class="block text-7xl font-black mb-2 tracking-tighter">YT Win</span><p class="uppercase font-black text-sm tracking-widest opacity-80 text-black">Long-form Transition</p></div>
+                        </section>
+                    </div>
+                `
+            }
+        };
+
+
+
+
+        function openModal(modalId, slug) {
+            const modal = document.getElementById(modalId);
+            
+            if (modalId === 'caseStudyModal') {
+                const data = caseStudyData[slug];
+                const content = document.getElementById('modalContent');
+                content.innerHTML = `
+                    <div class="animate-fade-up">
+                        <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-8">
+                            <div class="max-w-4xl">
+                                <p class="${data.accent} uppercase tracking-[0.3em] font-black text-sm mb-4">${data.subtitle}</p>
+                                <h2 class="text-5xl md:text-8xl font-black uppercase tracking-tighter leading-[0.85] text-white">${data.title}</h2>
+                            </div>
+                            <div class="text-left md:text-right border-l-4 md:border-l-0 md:border-r-4 ${data.accent.replace('text', 'border')} pl-8 md:pl-0 md:pr-8">
+                                <p class="text-[10px] text-neutral-500 uppercase font-black tracking-widest mb-1">Role</p>
+                                <p class="text-sm font-bold text-neutral-200 max-w-[300px] leading-tight uppercase">${data.role}</p>
+                            </div>
+                        </div>
+                        <div class="h-px w-full bg-neutral-900 mb-20"></div>
+                        ${data.content}
+                        <div class="mt-20 flex justify-center pb-20">
+                            <button onclick="closeModal('caseStudyModal')" class="group border-2 border-white/20 px-14 py-6 rounded-full font-black hover:bg-white hover:text-black transition-all uppercase tracking-widest text-xs flex items-center gap-4 shadow-xl">
+                                <i data-lucide="arrow-left" class="w-5 h-5"></i> Back to Portfolio
+                            </button>
+                        </div>
+                    </div>
+                `;
+                lucide.createIcons();
+            }
+
+
+
+
+            modal.classList.add('modal-active');
+            document.body.classList.add('modal-open');
+        }
+
+
+
+
+        function closeModal(modalId) {
+            const modal = document.getElementById(modalId);
+            modal.classList.remove('modal-active');
+            document.body.classList.remove('modal-open');
+            
+            if (modalId === 'caseStudyModal') {
+                document.getElementById('modalContent').innerHTML = '';
+            }
+        }
+    </script>
+</body>
+</html>
