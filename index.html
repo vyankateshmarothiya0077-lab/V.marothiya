@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -9,6 +9,8 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
+
+
 
 
     <style>
@@ -34,18 +36,26 @@
         }
 
 
+
+
         .custom-scrollbar {
             scrollbar-color: #333 #111;
             scrollbar-width: auto;
         }
 
 
+
+
         .no-scrollbar::-webkit-scrollbar { display: none; }
         .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
 
 
+
+
         .snap-x { scroll-snap-type: x mandatory; }
         .snap-center { scroll-snap-align: center; }
+
+
 
 
         @keyframes fadeInUp {
@@ -56,6 +66,8 @@
         
         .nav-transition { transition: all 0.5s ease; }
         .portfolio-item { flex-shrink: 0; }
+
+
 
 
         /* Modal Overlay Styling */
@@ -75,6 +87,8 @@
         body.modal-open { overflow: hidden; }
 
 
+
+
         /* Brand Colors */
         .text-gs-green { color: #22c55e; }
         .bg-gs-green { background-color: #004225; }
@@ -83,6 +97,8 @@
     </style>
 </head>
 <body class="bg-[#0a0a0a] text-neutral-100 selection:bg-white selection:text-black">
+
+
 
 
     <!-- Case Study Modal -->
@@ -94,6 +110,8 @@
             <div id="modalContent"></div>
         </div>
     </div>
+
+
 
 
     <!-- Contact Me Modal -->
@@ -110,11 +128,13 @@
                 <h2 class="text-4xl font-black mb-2 uppercase tracking-tighter">Book a Strategy Call</h2>
                 <p class="text-neutral-400 mb-8">Let's talk about scaling your brand. Pick a time or reach out directly below.</p>
 
+
                 <!-- Primary CTA -->
                 <a href="https://calendly.com/vyankateshmarothiya0077" target="_blank" rel="noopener noreferrer" class="flex items-center justify-center gap-3 w-full p-5 bg-white text-black rounded-xl hover:bg-neutral-200 transition-all font-black uppercase tracking-widest text-sm mb-8 shadow-lg">
                     <i data-lucide="calendar" class="w-5 h-5"></i>
                     Schedule a Free 30-Min Call
                 </a>
+
 
                 <!-- How it works -->
                 <div class="bg-neutral-800/50 rounded-xl p-6 mb-8 border border-neutral-700/50">
@@ -134,6 +154,7 @@
                         </div>
                     </div>
                 </div>
+
 
                 <!-- Other contact options -->
                 <p class="text-[10px] uppercase tracking-widest text-neutral-500 font-black mb-4">Or Reach Out Directly</p>
@@ -156,6 +177,8 @@
     </div>
 
 
+
+
     <!-- Navigation -->
     <nav id="navbar" class="fixed top-0 w-full z-50 nav-transition py-8 px-6">
         <div class="max-w-7xl mx-auto flex justify-between items-center">
@@ -172,6 +195,8 @@
             <button onclick="openModal('hireMeModal')" class="bg-white text-black px-6 py-2 rounded-full text-sm font-bold shadow-lg hover:bg-neutral-200 transition-colors tracking-widest uppercase flex items-center gap-2"><i data-lucide="phone-call" class="w-4 h-4"></i>Book a Call</button>
         </div>
     </nav>
+
+
 
 
     <!-- Hero -->
@@ -197,6 +222,8 @@
     </section>
 
 
+
+
     <!-- Trusted By Section -->
     <section class="py-24 border-y border-neutral-900 overflow-hidden bg-neutral-950/50">
         <div class="max-w-7xl mx-auto px-6">
@@ -215,6 +242,8 @@
             </div>
         </div>
     </section>
+
+
 
 
     <!-- About / Face Section -->
@@ -251,6 +280,8 @@
     </section>
 
 
+
+
     <!-- Case Studies Section -->
     <section id="work" class="py-32 px-6 overflow-hidden">
         <div class="max-w-7xl mx-auto mb-16 px-6">
@@ -259,6 +290,8 @@
                 Case Studies
             </div>
         </div>
+
+
 
 
         <div class="flex flex-nowrap overflow-x-auto gap-8 pb-12 snap-x custom-scrollbar px-6 max-w-7xl mx-auto">
@@ -280,6 +313,8 @@
             </div>
 
 
+
+
             <!-- IBW Case Study Card -->
             <div class="portfolio-item min-w-[62vw] md:min-w-[60vw] lg:min-w-[45vw] snap-center group relative bg-gradient-to-br from-red-700 to-black rounded-[3rem] p-5 md:p-14 shadow-2xl flex flex-col justify-between border border-red-500/30 transition-all hover:scale-[1.02]">
                 <div>
@@ -297,6 +332,8 @@
             </div>
         </div>
     </section>
+
+
 
 
     <!-- The 50% Rule / Philosophy -->
@@ -333,6 +370,7 @@
         </div>
     </section>
 
+
     <!-- Who This Is For + Services -->
     <section id="services" class="py-32 px-6 bg-[#0a0a0a]">
         <div class="max-w-7xl mx-auto">
@@ -365,6 +403,7 @@
                 </div>
             </div>
 
+
             <!-- Who This Is For -->
             <div class="bg-neutral-900 border border-neutral-800 rounded-[2rem] p-10 md:p-16 flex flex-col lg:flex-row gap-12 items-start">
                 <div class="lg:w-1/2">
@@ -396,6 +435,8 @@
     </section>
 
 
+
+
     <!-- Best Work Sections -->
     <section id="portfolio-section" class="py-32 bg-black overflow-hidden">
         <div class="max-w-7xl mx-auto px-6">
@@ -403,6 +444,8 @@
                 <p class="text-sm uppercase tracking-[0.4em] text-neutral-600 mb-4 font-black">curated</p>
                 <h2 class="text-5xl md:text-[8rem] font-black tracking-tighter uppercase mb-4 leading-none">best work</h2>
             </div>
+
+
 
 
             <!-- Vertical Format (12 Videos) -->
@@ -424,6 +467,7 @@
                         </div>
                     </a>
 
+
                     <a href="https://www.instagram.com/reel/DBG2dCvowPn/" target="_blank" class="portfolio-item min-w-[70vw] sm:min-w-[45vw] md:min-w-[30vw] lg:min-w-[22vw] snap-center group relative aspect-[9/16] rounded-3xl overflow-hidden border border-neutral-800 transition-all duration-500 hover:border-white">
                         <img src="assets/Image-447.jpg" class="absolute inset-0 w-full h-full object-cover grayscale opacity-60 group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700" alt="Video">
                         <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-80"></div>
@@ -437,6 +481,7 @@
                             <p class="text-[10px] uppercase tracking-widest text-neutral-300 font-bold">Views</p>
                         </div>
                     </a>
+
 
                     <a href="https://www.instagram.com/reel/DAOEkftNN8w/" target="_blank" class="portfolio-item min-w-[70vw] sm:min-w-[45vw] md:min-w-[30vw] lg:min-w-[22vw] snap-center group relative aspect-[9/16] rounded-3xl overflow-hidden border border-neutral-800 transition-all duration-500 hover:border-white">
                         <img src="assets/Image-519.jpg" class="absolute inset-0 w-full h-full object-cover grayscale opacity-60 group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700" alt="Video">
@@ -452,6 +497,7 @@
                         </div>
                     </a>
 
+
                     <a href="https://www.instagram.com/reel/C6oQRz6N541/" target="_blank" class="portfolio-item min-w-[70vw] sm:min-w-[45vw] md:min-w-[30vw] lg:min-w-[22vw] snap-center group relative aspect-[9/16] rounded-3xl overflow-hidden border border-neutral-800 transition-all duration-500 hover:border-white">
                         <img src="assets/Image-174.jpg" class="absolute inset-0 w-full h-full object-cover grayscale opacity-60 group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700" alt="Video">
                         <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-80"></div>
@@ -465,6 +511,7 @@
                             <p class="text-[10px] uppercase tracking-widest text-neutral-300 font-bold">Views</p>
                         </div>
                     </a>
+
 
                     <a href="https://www.instagram.com/reel/DDcCwGcNewy/" target="_blank" class="portfolio-item min-w-[70vw] sm:min-w-[45vw] md:min-w-[30vw] lg:min-w-[22vw] snap-center group relative aspect-[9/16] rounded-3xl overflow-hidden border border-neutral-800 transition-all duration-500 hover:border-white">
                         <img src="assets/Image-535.jpg" class="absolute inset-0 w-full h-full object-cover grayscale opacity-60 group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700" alt="Video">
@@ -480,6 +527,7 @@
                         </div>
                     </a>
 
+
                     <a href="https://www.instagram.com/reel/DMDRMdmReVn/" target="_blank" class="portfolio-item min-w-[70vw] sm:min-w-[45vw] md:min-w-[30vw] lg:min-w-[22vw] snap-center group relative aspect-[9/16] rounded-3xl overflow-hidden border border-neutral-800 transition-all duration-500 hover:border-white">
                         <img src="assets/Image-434.jpg" class="absolute inset-0 w-full h-full object-cover grayscale opacity-60 group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700" alt="Video">
                         <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-80"></div>
@@ -493,6 +541,7 @@
                             <p class="text-[10px] uppercase tracking-widest text-neutral-300 font-bold">Views</p>
                         </div>
                     </a>
+
 
                     <a href="https://www.instagram.com/reel/DKmixT6NgqJ/" target="_blank" class="portfolio-item min-w-[70vw] sm:min-w-[45vw] md:min-w-[30vw] lg:min-w-[22vw] snap-center group relative aspect-[9/16] rounded-3xl overflow-hidden border border-neutral-800 transition-all duration-500 hover:border-white">
                         <img src="assets/Image-486.jpg" class="absolute inset-0 w-full h-full object-cover grayscale opacity-60 group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700" alt="Video">
@@ -508,6 +557,7 @@
                         </div>
                     </a>
 
+
                     <a href="https://www.instagram.com/reel/C9U1KHsSX3T/" target="_blank" class="portfolio-item min-w-[70vw] sm:min-w-[45vw] md:min-w-[30vw] lg:min-w-[22vw] snap-center group relative aspect-[9/16] rounded-3xl overflow-hidden border border-neutral-800 transition-all duration-500 hover:border-white">
                         <img src="assets/Mumbai to london.jpeg" class="absolute inset-0 w-full h-full object-cover grayscale opacity-60 group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700" alt="Video">
                         <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-80"></div>
@@ -521,6 +571,7 @@
                             <p class="text-[10px] uppercase tracking-widest text-neutral-300 font-bold">Views</p>
                         </div>
                     </a>
+
 
                     <a href="https://www.instagram.com/reel/C-SlmrYIZgJ/" target="_blank" class="portfolio-item min-w-[70vw] sm:min-w-[45vw] md:min-w-[30vw] lg:min-w-[22vw] snap-center group relative aspect-[9/16] rounded-3xl overflow-hidden border border-neutral-800 transition-all duration-500 hover:border-white">
                         <img src="assets/SINGAPORE TO CZECH.jpg" class="absolute inset-0 w-full h-full object-cover grayscale opacity-60 group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700" alt="Video">
@@ -536,6 +587,7 @@
                         </div>
                     </a>
 
+
                     <a href="https://www.instagram.com/reel/DQN4x0xiKR_/" target="_blank" class="portfolio-item min-w-[70vw] sm:min-w-[45vw] md:min-w-[30vw] lg:min-w-[22vw] snap-center group relative aspect-[9/16] rounded-3xl overflow-hidden border border-neutral-800 transition-all duration-500 hover:border-white">
                         <img src="assets/Gs launch film.jpg" class="absolute inset-0 w-full h-full object-cover grayscale opacity-60 group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700" alt="Video">
                         <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-80"></div>
@@ -550,6 +602,7 @@
                         </div>
                     </a>
 
+
                     <a href="https://www.instagram.com/reel/DIqxV9VzMAe/" target="_blank" class="portfolio-item min-w-[70vw] sm:min-w-[45vw] md:min-w-[30vw] lg:min-w-[22vw] snap-center group relative aspect-[9/16] rounded-3xl overflow-hidden border border-neutral-800 transition-all duration-500 hover:border-white">
                         <img src="assets/Image-173.jpg" class="absolute inset-0 w-full h-full object-cover grayscale opacity-60 group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700" alt="Video">
                         <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-80"></div>
@@ -563,6 +616,7 @@
                             <p class="text-[10px] uppercase tracking-widest text-neutral-300 font-bold">Views</p>
                         </div>
                     </a>
+
 
                     <a href="https://www.instagram.com/reel/DKzSeR8TuL6/" target="_blank" class="portfolio-item min-w-[70vw] sm:min-w-[45vw] md:min-w-[30vw] lg:min-w-[22vw] snap-center group relative aspect-[9/16] rounded-3xl overflow-hidden border border-neutral-800 transition-all duration-500 hover:border-white">
                         <img src="assets/Image-397.jpg" class="absolute inset-0 w-full h-full object-cover grayscale opacity-60 group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700" alt="Video">
@@ -579,8 +633,12 @@
                     </a>
 
 
+
+
                 </div>
             </div>
+
+
 
 
             <!-- Horizontal Format (10 Videos) -->
@@ -651,6 +709,8 @@
             </div>
 
 
+
+
             <!-- CTA -->
             <div class="mt-32 text-center space-y-8">
                 <h3 class="text-3xl font-bold italic">Ready to scale your vision?</h3>
@@ -658,6 +718,8 @@
             </div>
         </div>
     </section>
+
+
 
 
     <!-- Footer -->
@@ -673,10 +735,16 @@
 
 
 
+
+
+
+
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             lucide.createIcons();
         });
+
+
 
 
         // Navbar Logic
@@ -685,6 +753,8 @@
             if (window.scrollY > 50) { navbar.classList.add('bg-neutral-950/95', 'backdrop-blur-md', 'py-4', 'border-b', 'border-neutral-900'); navbar.classList.remove('py-8'); }
             else { navbar.classList.remove('bg-neutral-950/95', 'backdrop-blur-md', 'py-4', 'border-b', 'border-neutral-900'); navbar.classList.add('py-8'); }
         });
+
+
 
 
         // Case Study Detailed Content
@@ -728,6 +798,8 @@
                                 </div>
 
 
+
+
                                 <div class="space-y-6 flex flex-col items-center">
                                     <a href="https://www.instagram.com/reel/C5qWp7kCg7m/" target="_blank" class="w-full max-w-[320px] aspect-[9/16] relative rounded-[2rem] overflow-hidden shadow-2xl border border-gs-green/30 group block mx-auto">
                                         <img src="assets/speed-shikhari.jpeg" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" alt="Speed Shikari">
@@ -746,6 +818,8 @@
                                         <p class="text-sm text-neutral-400 leading-snug">featuring top speed runs and pure engine performance.</p>
                                     </div>
                                 </div>
+
+
 
 
                                 <div class="space-y-6 flex flex-col items-center">
@@ -769,6 +843,8 @@
                             </div>
 
 
+
+
                             <div class="mt-24 bg-neutral-900/50 p-8 md:p-16 rounded-[3rem] border border-gs-green/20 flex flex-col lg:flex-row gap-16 items-center shadow-2xl">
                                 <div class="w-full lg:w-1/2 flex justify-center">
                                     <a href="https://www.instagram.com/reel/C79QiZSNKWu/" target="_blank" class="w-full max-w-[400px] aspect-[4/5] relative rounded-[2rem] overflow-hidden shadow-2xl border border-gs-green/30 group block mx-auto">
@@ -790,6 +866,7 @@
                                 </div>
                             </div>
                         </section>
+
 
                         <div class="mt-16 bg-[#0a0a0a] rounded-[2rem] border border-[#2e2e2e] p-8 overflow-hidden">
                             <div class="flex items-center gap-3 mb-6">
@@ -933,6 +1010,8 @@
                                     </a>
 
 
+
+
                                     <a href="https://www.instagram.com/reel/C-SlmrYIZgJ/" target="_blank" class="w-full max-w-[320px] aspect-[9/16] relative rounded-[2rem] overflow-hidden shadow-2xl border border-ibw-red/30 group block mx-auto">
                                         <img src="assets/SINGAPORE TO CZECH.jpg" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" alt="Big Trip 2">
                                         <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent"></div>
@@ -952,6 +1031,7 @@
                                 </div>
                             </div>
                         </section>
+
 
                         <div class="mt-16 bg-[#0a0a0a] rounded-[2rem] border border-[#2e2e2e] p-8 overflow-hidden">
                             <div class="flex items-center gap-3 mb-6">
@@ -1046,6 +1126,8 @@
         };
 
 
+
+
         function openModal(modalId, slug) {
             const modal = document.getElementById(modalId);
             
@@ -1077,9 +1159,13 @@
             }
 
 
+
+
             modal.classList.add('modal-active');
             document.body.classList.add('modal-open');
         }
+
+
 
 
         function closeModal(modalId) {
